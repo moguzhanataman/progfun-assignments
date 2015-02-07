@@ -48,7 +48,7 @@ object Main {
     }
 
     val parenCount = countParens(chars, 0)
-    println("pCount :" + parenCount)
+
     if(parenCount == 0) true
     else false
   }
