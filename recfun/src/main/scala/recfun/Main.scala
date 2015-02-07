@@ -28,7 +28,7 @@ object Main {
    * Exercise 2
    */
   def balance(chars: List[Char]): Boolean = {
-    def countParens(chars: List[Char], currentCount: Int): Int = {
+    def countParenthesis(chars: List[Char], currentCount: Int): Int = {
       // If we ever see currentCount below 0 that means
       // there are unmatched closing parenthesis.
       if(currentCount < 0) -1
@@ -39,18 +39,15 @@ object Main {
 
       // If first element in list is opening or closing parenthesis
       // change parenthesis count value accordingly
-      else if(chars.head == '(') countParens(chars.tail, currentCount + 1)
-      else if(chars.head == ')') countParens(chars.tail, currentCount - 1)
+      else if(chars.head == '(') countParenthesis(chars.tail, currentCount + 1)
+      else if(chars.head == ')') countParenthesis(chars.tail, currentCount - 1)
 
       // Its not parenthesis.
       // Continue to search list
-      else countParens(chars.tail, currentCount)
+      else countParenthesis(chars.tail, currentCount)
     }
 
-    val parenCount = countParens(chars, 0)
-
-    if(parenCount == 0) true
-    else false
+    countParenthesis(chars, 0) == 0
   }
 
   /**
