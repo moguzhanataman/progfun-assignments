@@ -31,10 +31,7 @@ object Main {
     def countParens(chars: List[Char], currentCount: Int): Int = {
       // If we ever see currentCount below 0 that means
       // there are unmatched closing parenthesis.
-      if(currentCount < 0) {
-        println("WARNING: We reached -1 point")
-        -1
-      }
+      if(currentCount < 0) -1
 
       // We reached to end of character list.
       // What we finally found is the count of parenthesis.
