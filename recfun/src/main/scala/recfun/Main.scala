@@ -52,6 +52,14 @@ object Main {
 
   /**
    * Exercise 3
+   *
+   * In this exercise I have to admit that I read the section about
+   * this problem in SICP (which is also support material of this course)
+   * and I looked the Scheme source code to have an idea on this problem.
    */
-  def countChange(money: Int, coins: List[Int]): Int = ???
+  def countChange(money: Int, coins: List[Int]): Int = {
+    if(money == 0) 1
+    else if(money < 0 || coins.isEmpty) 0
+    else countChange(money - coins.head, coins) + countChange(money, coins.tail)
+  }
 }
